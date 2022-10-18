@@ -33,7 +33,27 @@ guessBtn.addEventListener('click', () => {
     // Style input
     guessInput.style.borderColor = 'green';
     // Winning message
-    setMessage(`${winningNum} is the winning number. You WIN!`, 'green');
+    setMessage(`${winningNum} is correct. You WIN!`, 'green');
+  } else {
+    // User input is wrong
+    guessesLeft -= 1;
+
+    if (guessesLeft === 0) {
+      // Game over
+      // Disable input
+      guessInput.disabled = true;
+      // Style input
+      guessInput.style.borderColor = 'red';
+      // Winning message
+      setMessage(`${winningNum} is the winning number. You LOSE!!!`, 'red');
+    } else {
+      // Style input
+      guessInput.style.borderColor = 'red';
+      // Clear input field
+      guessInput.value = '';
+      // Set message for wrong input
+      setMessage(`${guess} is incorrect, you have ${guessesLeft} attempt(s) left`, 'red');
+    }
   }
 });
 
