@@ -1,7 +1,7 @@
 // Stating values
 let min = 1,
   max = 10,
-  winningNum = 7,
+  winningNum = getRandomNum(min, max),
   guessesLeft = 3;
 
 // UI elements
@@ -78,4 +78,8 @@ function gameOver(won, msg) {
   // Play again
   guessBtn.value = 'Play again?';
   guessBtn.className += 'play-again';
+}
+
+function getRandomNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
